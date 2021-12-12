@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+    <script src="../../server/firebase.js"></script>
+    <script src="../../server/database.js"></script>
+    <script defer src="details.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
+    <title>Gerenciamento</title>
+</head>
+
+<body>
+
+    <div>
+        <div>
+            <h1 id="titulo" align="center">Caixa ...</h1>
+            <p id="subtitulo" align="center">Procurar Revistas</p>
+            <br>
+        </div>
+        <style class="INLINE_PEN_STYLESHEET_ID">
+            body {
+                background: #000000;
+                color: white;
+            }
+
+            h1 {
+                font-size: 50px;
+                color: rgb(212, 0, 255);
+            }
+
+            .container {
+                margin-top: 30px;
+                margin-bottom: 30px;
+            }
+
+            .list {
+                list-style-type: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .list--list-item {
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid rgb(212, 0, 255);
+            }
+
+            .list--list-item:last-child {
+                border-bottom: 0;
+                margin: 0;
+            }
+
+            .no-result {
+                display: none;
+            }
+
+            #iframe {
+                display: none;
+            }
+        </style>
+
+        <body>
+            <div class="container">
+                <div class="row">
+                    <div id="users" class="col-xs-12">
+                        <div class="filter-group row" style="display:none;">
+                            <div class="form-group col-xs-12 col-sm-12 col-md-4">
+                                <input type="text" class="search form-control" placeholder="Search">
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-12 col-md-4">
+                                <div class="radio-inline">
+                                    <label>
+                                        <input class="filter-all" type="radio" value="all" name="gender" id="gender-all"
+                                            checked=""> All
+                                    </label>
+                                </div>
+                                <div class="radio-inline">
+                                    <label>
+                                        <input class="filter" type="radio" value="female" name="gender"
+                                            id="gender-female"> Female
+                                    </label>
+                                </div>
+                                <div class="radio-inline">
+                                    <label>
+                                        <input class="filter" type="radio" value="male" name="gender" id="gender-male">
+                                        Male
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-12 col-md-4">
+                                <div class="radio-inline">
+                                    <label>
+                                        <input class="filter" type="radio" value="Blvd" name="address" id="address-all">
+                                        Boulevard
+                                    </label>
+                                </div>
+                                <div class="radio-inline">
+                                    <label>
+                                        <input class="filter" type="radio" value="St" name="address"
+                                            id="address-street"> Street
+                                    </label>
+                                </div>
+                                <div class="radio-inline">
+                                    <label>
+                                        <input class="filter" type="radio" value="Dr" name="address" id="address-drive">
+                                        Drive
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12 col-sm-12">
+                                <button class="btn btn-danger" onclick="resetList();">Clear</button>
+                            </div>
+                        </div>
+                        <ul class="list" id="magazines-list"></ul>
+                        <div class="no-result">No Results</div>
+                        <ul class="pagination"></ul>
+                    </div>
+                </div>
+            </div>
+        </body>
+
+</html>
